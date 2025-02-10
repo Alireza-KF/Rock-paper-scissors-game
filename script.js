@@ -1,0 +1,165 @@
+// Get references to HTML elements
+const no = document.getElementById("no");
+const yes = document.getElementById("Yes");
+const question = document.getElementById("question");
+const start = document.getElementById("start");
+const back = document.getElementById("back");
+const BackQuestion = document.getElementById("back-question");
+const player = document.getElementById("player");
+const selector = document.getElementById("selector");
+const want = document.getElementById("wantplay");
+const items = document.getElementById("items");
+const imageElement = document.getElementById("image-element"); // Player's image element
+const systemImageElement = document.querySelector(".system-side img"); // System's image element
+const playerScoreElement = document.getElementById("Player-score");
+const systemScoreElement = document.getElementById("System-score");
+const resultTextElement = document.querySelector(".result-text"); // Result text element
+const resultElement = document.querySelector(".result"); // Result display element
+
+// Initialize game variables
+let playerScore = 0;
+let systemScore = 0;
+let round = 0;
+const maxRounds = 10;
+
+// Function to reset the game state
+function resetGame() {
+  question.classList.remove("d-none");
+  want.classList.remove("d-none");
+  question.style.display = "block";
+  want.style.display = "block";
+  items.classList.remove("d-block");
+  items.classList.add("d-none");
+  selector.classList.add("d-none");
+  imageElement.classList.add("d-none");
+  systemImageElement.classList.add("d-none");
+  start.classList.remove("disabled");
+  round = 0;
+  resultElement.classList.add("d-none");
+}
+
+// Function to update the scores on the UI
+function updateScores() {
+  playerScoreElement.textContent = playerScore;
+  systemScoreElement.textContent = systemScore;
+}
+
+// Function to determine the winner of a round
+function determineWinner(playerChoice, systemChoice) {
+  if (playerChoice === systemChoice) {
+    return "draw";
+  }
+  if (
+    (playerChoice === "Rock" && systemChoice === "Scissors") ||
+    (playerChoice === "Paper" && systemChoice === "Rock") ||
+    (playerChoice === "Scissors" && systemChoice === "Paper")
+  ) {
+    return "player";
+  }
+  return "system";
+}
+
+// Event listener for the "No" button
+no.addEventListener("click", () => {
+  question.style.display = "none";
+  start.classList.add("disabled");
+  back.classList.add("d-flex");
+  back.classList.remove("d-none");
+});
+
+// Event listener for the "Yes" button
+yes.addEventListener("click", () => {
+  want.style.display = "none";
+  items.classList.add("d-block");
+  items.classList.remove("d-none");
+  selector.classList.remove("d-none");
+});
+
+// Event listener for the "Back" button
+back.addEventListener("click", () => {
+  BackQuestion.style.transform = "translate(0)";
+  back.classList.add("d-none");
+  back.classList.remove("d-flex");
+});
+
+// Event listener for the "Enter" key
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    if (player.value.toLowerCase() === "yes") {
+      question.style.display = "block";
+      start.classList.remove("disabled");
+      BackQuestion.style.transform = "translate(-100%)";
+    }
+    if (player.value.toLowerCase() === "no") {
+      question.style.display = "none";
+      back.classList.add("d-flex");
+      back.classList.remove("d-none");
+      BackQuestion.style.transform = "translate(-100%)";
+    }
+  }
+});
+
+// Event listener for the selector change
+selector.addEventListener("change", () => {
+  const selectedValue = selector.value;
+  let imageUrl = "";
+
+  imageElement.classList.add("d-block");
+  imageElement.classList.remove("d-none");
+  question.classList.add("d-none");
+
+  switch (selectedValue) {
+    case "Rock":
+      imageUrl = "./image/Rock.png";
+      break;
+    case "Paper":
+      imageUrl = "./image/Paper.png";
+      break;
+    case "Scissors":
+      imageUrl = "./image/Scissors.png";
+      break;
+  }
+
+  imageElement.src = imageUrl;
+
+  // Change system image randomly
+  const images = ["./image/Rock.png", "./image/Paper.png", "./image/Scissors.png"];
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  systemImageElement.src = randomImage;
+  systemImageElement.classList.remove("d-none");
+
+  // Determine the winner
+  const systemChoice = randomImage.split("/").pop().split(".")[0];
+  const winner = determineWinner(selectedValue, systemChoice);
+
+  if (winner === "player") {
+    playerScore++;
+    resultTextElement.textContent = "You win";
+  } else if (winner === "system") {
+    systemScore++;
+    resultTextElement.textContent = "System win";
+  } else {
+    resultTextElement.textContent = "Equal";
+  }
+
+  round++;
+  updateScores();
+
+  // Display the result
+  resultElement.classList.remove("d-none");
+  resultElement.classList.add("d-flex");
+
+  // Reset the selector value
+  selector.value = "";
+
+  // Check if the game is over
+  if (round >= maxRounds) {
+    alert(`Game Over! Final Score - Player: ${playerScore}, System: ${systemScore}`);
+    resetGame();
+  }
+});
+
+// Event listener for the "Start" button
+start.addEventListener("click", () => {
+  resetGame();
+});

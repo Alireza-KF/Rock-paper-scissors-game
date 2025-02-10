@@ -1,0 +1,228 @@
+/* Define a custom font face */
+@font-face {
+    font-family: 'Comic';
+    src: url("./Font/Comic\ Sans\ MS.ttf"), (truetype);
+}
+
+/* Reset margin and padding for all elements and set the default font */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic';
+}
+
+/* Style for the main contents section */
+div.main-contents {
+    top: 35%;
+}
+
+/* Style for the start button */
+.button-start {
+    height: 50px;
+}
+
+/* Style for the back button */
+button.back {
+    width: 47px;
+    height: 100px;
+}
+
+/* Style for the backgame div and its child elements */
+div.backgame > div {
+    transform: translate(-100%);
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.24);
+    border-radius: 10px;
+}
+
+/* Inherit border-radius for elements with the class .back-answer inside div.backgame > div */
+div.backgame > div .back-answer {
+    border-radius: inherit;
+}
+
+/* Style for the result text */
+p.result-text {
+    font-size: 40px;
+}
+
+.result{
+    left: 25%;
+}
+
+/* Media query for screens with a minimum width of 768px */
+@media only screen and (min-width: 768px) {
+    .result {
+        bottom: 60% ;
+    }
+
+    #start {
+        left: 7%;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wantplay > p{
+        font-size: 30px;
+    }
+    
+    #Yes{
+        font-size: 30px;
+    }
+
+    #no{
+        font-size: 30px;
+    }
+
+    #items{
+        font-size: 30px;
+    }
+
+    #selector{
+        font-size: 20px;
+        bottom: 56%;
+        right: 40%;
+        position: absolute;
+    }
+
+    #question{
+        text-align: center;
+    }
+
+    #back{
+        position: absolute;
+        height: 200px;
+    }
+
+    #basic-addon1{
+        font-size: 30px;
+    }
+
+    #player{
+        font-size: 30px;
+    }
+}
+/* Media query for screens with a minimum width of 990px */
+@media only screen and (min-width: 990px) {
+
+    .result {
+        bottom: 50% ;
+    }
+
+    #start {
+        left: 7%;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 10px;
+    }
+
+    .wantplay > p{
+        font-size: 30px;
+    }
+    
+    #Yes{
+        font-size: 30px;
+        position: fixed;
+    }
+
+    #no{
+        font-size: 30px;
+        position: fixed;
+
+    }
+
+    #items{
+        font-size: 30px;
+    }
+
+    #selector{
+        font-size: 20px;
+        bottom: 30%;
+        right: 45%;
+        position: absolute;
+    }
+
+    #question{
+        text-align: start;
+    }
+
+    #back{
+        position: absolute;
+        height: 200px;
+    }
+
+    #basic-addon1{
+        font-size: 30px;
+    }
+
+    #player{
+        font-size: 30px;
+    }
+
+}
+/* Media query for screens with a minimum width of 1200px */
+@media only screen and (min-width: 1200px) {
+
+    .result {
+        bottom: 50% ;
+    }
+
+    #start {
+        left: 7%;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 10px;
+    }
+
+    .wantplay > p{
+        font-size: 30px;
+    }
+    
+    #Yes{
+        font-size: 30px;
+        position: fixed;
+    }
+
+    #no{
+        font-size: 30px;
+        position: fixed;
+    }
+
+    #items{
+        font-size: 30px;
+    }
+
+    #selector{
+        font-size: 20px;
+        bottom: 30%;
+        right: 45%;
+        position: absolute;
+    }
+
+    #question{
+        text-align: start;
+    }
+
+    #back{
+        position: absolute;
+        height: 200px;
+    }
+
+    #basic-addon1{
+        font-size: 30px;
+    }
+
+    #player{
+        font-size: 30px;
+    }
+
+}
