@@ -102,6 +102,26 @@ p.result-text {
     #player{
         font-size: 30px;
     }
+
+    .player-side > img{
+        width: 150px;
+    }
+
+    .system-side > img{
+        width: 150px;
+        position: absolute;
+        right: -9.5%;
+        bottom: 12%;
+    }
+
+    #question > .options > img{
+        top: 70px;
+        left: 120px;
+    }
+
+    #question > .options > img.option{
+        width: 100px;
+    }
 }
 /* Media query for screens with a minimum width of 990px */
 @media only screen and (min-width: 990px) {
@@ -164,6 +184,11 @@ p.result-text {
         font-size: 30px;
     }
 
+    #question > .options > img{
+        top: 0px;
+        left: 500px;
+    }
+
 }
 /* Media query for screens with a minimum width of 1200px */
 @media only screen and (min-width: 1200px) {
@@ -223,6 +248,26 @@ p.result-text {
 
     #player{
         font-size: 30px;
+    }
+
+    .player-side > img{
+        width: 200px;
+    }
+
+    .system-side > img{
+        width: 200px;
+        position: absolute;
+        right: -11.5%;
+        bottom: 12%;
+    }
+
+    #question > .options > img.option{
+        width: 100px;
+    }
+
+    .options{
+        top: 10%;
+        left: 40%;
     }
 
 }

@@ -10,7 +10,7 @@ const selector = document.getElementById("selector");
 const want = document.getElementById("wantplay");
 const items = document.getElementById("items");
 const imageElement = document.getElementById("image-element"); // Player's image element
-const systemImageElement = document.querySelector(".system-side img"); // System's image element
+const systemImageElement = document.getElementById("system-image-element"); // System's image element
 const playerScoreElement = document.getElementById("Player-score");
 const systemScoreElement = document.getElementById("System-score");
 const resultTextElement = document.querySelector(".result-text"); // Result text element
@@ -99,64 +99,50 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-// Event listener for the selector change
-selector.addEventListener("change", () => {
-  const selectedValue = selector.value;
-  let imageUrl = "";
+// Event listener for the options (images) click
+document.querySelectorAll('.option').forEach(option => {
+  option.addEventListener('click', (event) => {
+    const selectedValue = event.target.alt;
+    let imageUrl = event.target.src;
 
-  imageElement.classList.add("d-block");
-  imageElement.classList.remove("d-none");
-  question.classList.add("d-none");
+    imageElement.src = imageUrl;
+    imageElement.classList.add("d-block");
+    imageElement.classList.remove("d-none");
+    question.classList.add("d-none");
 
-  switch (selectedValue) {
-    case "Rock":
-      imageUrl = "./image/Rock.png";
-      break;
-    case "Paper":
-      imageUrl = "./image/Paper.png";
-      break;
-    case "Scissors":
-      imageUrl = "./image/Scissors.png";
-      break;
-  }
+    // Change system image randomly
+    const images = ["./image/Rock.png", "./image/Paper.png", "./image/Scissors.png"];
+    const randomImage = images[Math.floor(Math.random() * images.length)];
+    systemImageElement.src = randomImage;
+    systemImageElement.classList.remove("d-none");
 
-  imageElement.src = imageUrl;
+    // Determine the winner
+    const systemChoice = randomImage.split("/").pop().split(".")[0];
+    const winner = determineWinner(selectedValue, systemChoice);
 
-  // Change system image randomly
-  const images = ["./image/Rock.png", "./image/Paper.png", "./image/Scissors.png"];
-  const randomImage = images[Math.floor(Math.random() * images.length)];
-  systemImageElement.src = randomImage;
-  systemImageElement.classList.remove("d-none");
+    if (winner === "player") {
+      playerScore++;
+      resultTextElement.textContent = "You win";
+    } else if (winner === "system") {
+      systemScore++;
+      resultTextElement.textContent = "System win";
+    } else {
+      resultTextElement.textContent = "Equal";
+    }
 
-  // Determine the winner
-  const systemChoice = randomImage.split("/").pop().split(".")[0];
-  const winner = determineWinner(selectedValue, systemChoice);
+    round++;
+    updateScores();
 
-  if (winner === "player") {
-    playerScore++;
-    resultTextElement.textContent = "You win";
-  } else if (winner === "system") {
-    systemScore++;
-    resultTextElement.textContent = "System win";
-  } else {
-    resultTextElement.textContent = "Equal";
-  }
+    // Display the result
+    resultElement.classList.remove("d-none");
+    resultElement.classList.add("d-flex");
 
-  round++;
-  updateScores();
-
-  // Display the result
-  resultElement.classList.remove("d-none");
-  resultElement.classList.add("d-flex");
-
-  // Reset the selector value
-  selector.value = "";
-
-  // Check if the game is over
-  if (round >= maxRounds) {
-    alert(`Game Over! Final Score - Player: ${playerScore}, System: ${systemScore}`);
-    resetGame();
-  }
+    // Check if the game is over
+    if (round >= maxRounds) {
+      alert(`Game Over! Final Score - Player: ${playerScore}, System: ${systemScore}`);
+      resetGame();
+    }
+  });
 });
 
 // Event listener for the "Start" button

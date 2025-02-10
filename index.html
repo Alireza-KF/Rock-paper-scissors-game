@@ -29,46 +29,49 @@
         </div>
         <img src="./image/VS image.webp" class="w-25" alt="">
         <div class="system-side">
-            <img class="d-none" src="./image/Rock.png" alt="">
+            <img class="d-none" id="system-image-element" src="./image/Rock.png" alt="">
         </div>
     </div>
 
     <!-- Question section asking if the user wants to play -->
     <div class="alert alert-light position-absolute w-75 h-25 ms-5 mt-5" id="question">
         <div class="wantplay" id="wantplay">
-            <p>Are you wanna play?</p>
+            <p>Do you wanna play?</p>
             <div class="answer position-absolute bottom-0 w-100 mb-5 justify-content-center align-items-center d-flex">
                 <button class="btn btn-primary position-fixed me-5 end-50" id="Yes">Yes</button>
                 <button class="btn btn-danger position-fixed ms-5 start-50" id="no">No</button>
             </div>
         </div>
         <p class="d-none" id="items">please choose your item:</p>
-        <select class="d-none" name="selector" id="selector">
-            <option value="Choise"></option>
-            <option value="Rock">Rock</option>
-            <option value="Paper">Paper</option>
-            <option value="Scissors">Scissors</option>
-        </select>
+        <div class="d-none options d-flex position-absolute gap-4" name="selector" id="selector">
+            <img src="./image/Paper.png" alt="Paper" class="option position-relative">
+            <img src="./image/Rock.png" alt="Rock" class="option position-relative">
+            <img src="./image/scissors.png" alt="Scissors" class="option position-relative">
+        </div>
     </div>
 
     <!-- Back to game question section -->
     <div class="backgame">
         <div class="input-group mb-3 d-block w-50 position-absolute top-50" id="back-question">
             <span class="back-answer input-group-text w-auto" id="basic-addon1">want back to game?</span>
-            <input type="text" class="back-answer form-control w-100" placeholder="Yes or No" aria-describedby="basic-addon1" id="player">
+            <input type="text" class="back-answer form-control w-100" placeholder="Yes or No"
+                aria-describedby="basic-addon1" id="player">
         </div>
     </div>
 
     <!-- Result section displaying the game result -->
-    <div class="result container-xxl bg-success position-absolute d-none justify-content-center align-items-center w-50 h-25 mt-3">
+    <div
+        class="result container-xxl bg-success position-absolute d-none justify-content-center align-items-center w-50 h-25 mt-3">
         <p class="text-warning result-text">You win</p>
     </div>
 
     <!-- Back button -->
-    <button id="back" type="button" class="back btn btn-success position-absolute top-50 d-none justify-content-center align-items-center">back</button>
+    <button id="back" type="button"
+        class="back btn btn-success position-absolute top-50 d-none justify-content-center align-items-center">back</button>
 
     <!-- Start button -->
-    <button class="btn btn-primary position-absolute w-75 ms-5 mb-5 bottom-0 button-start active" id="start">start</button>
+    <button class="btn btn-primary position-absolute w-75 ms-5 mb-5 bottom-0 button-start active"
+        id="start">start</button>
 
     <!-- Link to the custom JavaScript file -->
     <script src="./script.js"></script>
