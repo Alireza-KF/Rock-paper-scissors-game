@@ -111,7 +111,7 @@ document.querySelectorAll('.option').forEach(option => {
     question.classList.add("d-none");
 
     // Change system image randomly
-    const images = ["./image/Rock.png", "./image/Paper.png", "./image/Scissors.png"];
+    const images = ["./image/Rock.png", "./image/Paper.png", "./image/scissors.png"];
     const randomImage = images[Math.floor(Math.random() * images.length)];
     systemImageElement.src = randomImage;
     systemImageElement.classList.remove("d-none");
