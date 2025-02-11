@@ -21,7 +21,7 @@ const resultElement = document.querySelector(".result"); // Result display eleme
 let playerScore = 0;
 let systemScore = 0;
 let round = 0;
-const maxRounds = 11;
+const maxRounds = 10;
 
 // Function to reset the game state
 function resetGame() {
@@ -51,19 +51,22 @@ function updateScores() {
 
 // Function to determine the winner of a round
 function determineWinner(playerChoice, systemChoice) {
-  if (playerChoice === systemChoice) {
-    return "draw";
-  }
-  // شرط برای تعیین برنده کاربر
-  if (
-    (playerChoice === "Rock" && systemChoice === "Scissors") ||
-    (playerChoice === "Paper" && systemChoice === "Rock") ||
-    (playerChoice === "Scissors" && systemChoice === "Paper")
-  ) {
-    return "player";
-  }
-  return "system";
+  if (!playerChoice || !systemChoice) return null; // بررسی مقدارهای ورودی
+  playerChoice = playerChoice.toLowerCase();
+  systemChoice = systemChoice.toLowerCase();
+
+  if (playerChoice === systemChoice) return "draw"; // بررسی مساوی شدن
+
+  // تعریف قوانین برنده شدن
+  const winningCases = {
+    rock: "scissors",
+    paper: "rock",
+    scissors: "paper",
+  };
+
+  return winningCases[playerChoice] === systemChoice ? "player" : "system";
 }
+
 
 // Event listener for the "No" button
 no.addEventListener("click", () => {
