@@ -16,11 +16,6 @@ div.main-contents {
     top: 35%;
 }
 
-/* Style for the start button */
-.button-start {
-    height: 50px;
-}
-
 /* Style for the back button */
 button.back {
     width: 47px;
@@ -47,6 +42,22 @@ p.result-text {
 
 .result{
     left: 25%;
+}
+
+/* Style for the start button */
+.button-start {
+    position: absolute;
+    width: 75%;
+    bottom: 0;
+}
+
+/* Style for the again button */
+.button-again {
+    position: absolute;
+    width: 75%;
+    bottom: 0;
+    left: 7%;
+    height: 60px;
 }
 
 /* Media query for screens with a minimum width of 768px */

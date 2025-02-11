@@ -19,7 +19,7 @@
         <p class="fs-2" id="Player-score"></p>
         <img class="w-25" src="./image/VS image.png" alt="VS image">
         <p class="fs-2" id="System-score"></p>
-        <p class="fs-1">System</p>
+        <p class="fs-1">Bot</p>
     </div>
 
     <!-- Main content section for the game -->
@@ -27,16 +27,16 @@
         <div class="player-side">
             <img class="d-none" id="image-element" src="./image/Paper.png" alt="">
         </div>
-        <img src="./image/VS image.png" class="w-25" alt="">
+        <img src="./image/VS image.png" class="w-25 position-absolute start-50 ms-auto" alt="">
         <div class="system-side">
             <img class="d-none" id="system-image-element" src="./image/Rock.png" alt="">
         </div>
     </div>
 
     <!-- Question section asking if the user wants to play -->
-    <div class="alert alert-light position-absolute w-75 h-25 ms-5 mt-5" id="question">
+    <div class="alert alert-light position-absolute w-75 h-25 ms-5 mt-5 d-none" id="question">
         <div class="wantplay" id="wantplay">
-            <p>Do you wanna play?</p>
+            <p>Ready?</p>
             <div class="answer position-absolute bottom-0 w-100 mb-5 justify-content-center align-items-center d-flex">
                 <button class="btn btn-primary position-fixed me-5 end-50" id="Yes">Yes</button>
                 <button class="btn btn-danger position-fixed ms-5 start-50" id="no">No</button>
@@ -46,7 +46,7 @@
         <div class="d-none options d-flex position-absolute gap-4" name="selector" id="selector">
             <img src="./image/Paper.png" alt="Paper" class="option position-relative">
             <img src="./image/Rock.png" alt="Rock" class="option position-relative">
-            <img src="./image/scissors.png" alt="Scissors" class="option position-relative">
+            <img src="./image/Scissors.png" alt="Scissors" class="option position-relative">
         </div>
     </div>
 
@@ -72,6 +72,11 @@
     <button class="btn btn-primary position-absolute w-75 ms-5 mb-5 bottom-0 button-start active"
         id="start">start</button>
 
+        
+        <!-- Again button -->
+        <button class="btn btn-secondary position-absolute w-75 ms-5 mb-5 bottom-0 button-again d-none"
+        id="again">again</button>
+        
     <!-- Link to the custom JavaScript file -->
     <script src="./script.js"></script>
     <!-- Link to the Bootstrap JavaScript bundle -->
