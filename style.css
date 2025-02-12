@@ -11,6 +11,15 @@
     font-family: 'Comic';
 }
 
+body.background {
+    background-image: url('./Image/bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+}
+
 /* Style for the main contents section */
 div.main-contents {
     top: 35%;
@@ -42,6 +51,7 @@ p.result-text {
 
 .result{
     left: 25%;
+    border-radius: 5%;
 }
 
 /* Style for the start button */
@@ -60,10 +70,140 @@ p.result-text {
     height: 60px;
 }
 
+.player-side{
+    mix-blend-mode: multiply;
+}
+
+.system-side{
+    mix-blend-mode: multiply;
+}
+
+div.options >  img.option{
+    mix-blend-mode: multiply;
+}
+
+.system-side{
+    position: absolute;
+    right: 1% !important;
+    top: 120% !important;
+}
+
+/* Media query for screens with a minimum width of 768px */
+@media only screen and (max-width: 567px) {
+    div.main-contents > img.vs-logo{
+        left: 38%;
+    }
+
+    #again{
+        height: 38px;
+        z-index: -1;
+        left: 12%;
+    }
+
+    img.option{
+        width: 50px;
+    }
+
+    div.system-side > img {
+        width: 100px;
+    }
+
+    div.player-side > img {
+        width: 100px;
+    }
+}
 /* Media query for screens with a minimum width of 768px */
 @media only screen and (min-width: 768px) {
     .result {
-        bottom: 60% ;
+        bottom: 60%;
+        left: 25%;
+    }
+
+    #start {
+        left: 7%;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .wantplay > p{
+        font-size: 30px;
+    }
+    
+    #Yes{
+        font-size: 30px;
+    }
+
+    #no{
+        font-size: 30px;
+    }
+
+    #items{
+        font-size: 30px;
+    }
+
+    #selector{
+        font-size: 20px;
+        bottom: 56%;
+        right: 40%;
+        position: absolute;
+    }
+
+    #question{
+        text-align: center;
+    }
+
+    #back{
+        position: absolute;
+        height: 200px;
+    }
+
+    #basic-addon1{
+        font-size: 30px;
+    }
+
+    #player{
+        font-size: 30px;
+    }
+    
+    .system-side{
+        position: absolute;
+        right: 1%;
+        top: 160%;
+    }
+
+    .player-side > img{
+        width: 150px;
+        position: relative;
+        top: 60px;
+    }
+
+    .system-side > img{
+        width: 150px;
+        position: absolute;
+        right: -9.5%;
+        bottom: 12%;
+    }
+
+    #question > .options > img{
+        top: 70px;
+        left: 120px;
+    }
+
+    #question > .options > img.option{
+        width: 60px;
+    }
+
+    div.main-contents > img.vs-logo{
+        left: 43%;
+    }
+}
+/* Media query for screens with a width of 884px */
+@media only screen and (width: 884px) {
+    .result {
+        bottom: 60%;
+        left: 25%;
     }
 
     #start {
@@ -114,24 +254,36 @@ p.result-text {
         font-size: 30px;
     }
 
-    .player-side > img{
-        width: 150px;
+    .system-side{
+        position: absolute;
+        right: -21%;
+        top: 130%;
     }
 
     .system-side > img{
+        mix-blend-mode: multiply;
+    }
+
+    .player-side > img{
         width: 150px;
-        position: absolute;
-        right: -9.5%;
-        bottom: 12%;
+        position: relative;
+        top: 60px;
+        mix-blend-mode: multiply;
     }
 
     #question > .options > img{
-        top: 70px;
+        top: 110px;
         left: 120px;
+        mix-blend-mode: multiply;
+        opacity: 1;
     }
 
     #question > .options > img.option{
-        width: 100px;
+        width: 80px;
+    }
+
+    div.main-contents > img.vs-logo{
+        left: 43%;
     }
 }
 /* Media query for screens with a minimum width of 990px */
@@ -196,20 +348,36 @@ p.result-text {
     }
 
     #question > .options > img{
-        top: 0px;
-        left: 500px;
+        top: 10px;
+        left: 350px;
     }
 
+    div.main-contents > img.vs-logo{
+        left: 45.5%;
+    }
+
+    #again {
+        z-index: 1; /* تغییر z-index به 1 */
+        left: 8%;
+        font-size: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 75%;
+    }
 }
 /* Media query for screens with a minimum width of 1200px */
 @media only screen and (min-width: 1200px) {
 
     .result {
-        bottom: 60% ;
+        bottom: 55%;
+        z-index: 1;
     }
 
     #start {
-        left: 7%;
+        left: 8%;
         font-size: 30px;
         display: flex;
         justify-content: center;
@@ -219,13 +387,20 @@ p.result-text {
         width: 10px;
     }
 
+    #again{
+        z-index: -1;
+        left: 8%;
+    }
+
     .wantplay > p{
         font-size: 30px;
+        text-align: center;
     }
     
     #Yes{
         font-size: 30px;
         position: fixed;
+ 
     }
 
     #no{
@@ -245,7 +420,8 @@ p.result-text {
     }
 
     #question{
-        text-align: start;
+        text-align: center;
+        top: 50%;
     }
 
     #back{
@@ -279,6 +455,11 @@ p.result-text {
     .options{
         top: 10%;
         left: 40%;
+    }
+
+    div.main-contents > img.vs-logo{
+        z-index: -1;
+        left: 43%;
     }
 
 }

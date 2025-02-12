@@ -11,30 +11,30 @@
     <link rel="stylesheet" href="./Bootstrap/node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 
-<body>
+<body class="background">
 
     <!-- Header section displaying player and system scores -->
     <div class="header container container-xxs d-flex justify-content-between align-items-center">
-        <p class="fs-1">You</p>
-        <p class="fs-2" id="Player-score"></p>
-        <img class="w-25" src="./image/VS image.png" alt="VS image">
-        <p class="fs-2" id="System-score"></p>
-        <p class="fs-1">Bot</p>
+        <p class="fs-1 text-white">You</p>
+        <p class="fs-2 text-white" id="Player-score"></p>
+        <!-- <img class="w-25" src="./image/VS image.png" alt="VS image"> -->
+        <p class="fs-2 text-white" id="System-score"></p>
+        <p class="fs-1 text-white">Bot</p>
     </div>
 
     <!-- Main content section flor the game -->
     <div class="main-contents container d-flex justify-content-between align-items-center mt-5 position-absolute">
         <div class="player-side">
-            <img class="d-none" id="image-element" src="./image/Paper.png" alt="">
+            <img class="d-none pl-item" id="image-element" src="./image/Paper.png" alt="">
         </div>
-        <img src="./image/VS image.png" class="w-25 position-absolute start-50 ms-auto" alt="">
+        <!-- <img src="./image/VS image.png" class="w-25 position-absolute vs-logo" alt=""> -->
         <div class="system-side">
             <img class="d-none" id="system-image-element" src="./image/Rock.png" alt="">
         </div>
     </div>
 
     <!-- Question section asking if the user wants to play -->
-    <div class="alert alert-light position-absolute w-75 h-25 ms-5 mt-5 d-none" id="question">
+    <div class="alert alert-dark position-absolute w-75 h-25 ms-5 mt-5 d-none border-1" id="question">
         <div class="wantplay" id="wantplay">
             <p>Ready?</p>
             <div class="answer position-absolute bottom-0 w-100 mb-5 justify-content-center align-items-center d-flex">
@@ -43,7 +43,7 @@
             </div>
         </div>
         <p class="d-none" id="items">please choose your item:</p>
-        <div class="d-none options d-flex position-absolute gap-4" name="selector" id="selector">
+        <div class="d-none options d-flex position-absolute bg-transparent gap-5" name="selector" id="selector">
             <img src="./image/Paper.png" alt="Paper" class="option position-relative">
             <img src="./image/Rock.png" alt="Rock" class="option position-relative">
             <img src="./image/scissors.png" alt="Scissors" class="option position-relative">
@@ -74,7 +74,7 @@
 
         
         <!-- Again button -->
-        <button class="btn btn-secondary position-absolute w-75 ms-5 mb-5 bottom-0 button-again d-none"
+        <button class="btn btn-secondary position-absolute w-75 ms-md-5 mb-5 button-again d-none"
         id="again">again</button>
         
     <!-- Link to the custom JavaScript file -->
