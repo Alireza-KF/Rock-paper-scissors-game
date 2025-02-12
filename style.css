@@ -84,8 +84,8 @@ div.options >  img.option{
 
 .system-side{
     position: absolute;
-    right: 1% !important;
-    top: 120% !important;
+    right: 1%;
+    top: 120%;
 }
 
 /* Media query for screens with a minimum width of 768px */
@@ -110,6 +110,12 @@ div.options >  img.option{
 
     div.player-side > img {
         width: 100px;
+    }
+
+    .system-side{
+        position: absolute;
+        right: 1%;
+        top: 1%;
     }
 }
 /* Media query for screens with a minimum width of 768px */
@@ -170,7 +176,7 @@ div.options >  img.option{
     .system-side{
         position: absolute;
         right: 1%;
-        top: 160%;
+        top: 120%;
     }
 
     .player-side > img{
@@ -440,14 +446,13 @@ div.options >  img.option{
     .player-side > img{
         width: 200px;
         position: relative;
-        left: 350px;
+        left: 200px;
     }
 
     .system-side > img{
         width: 200px;
         position: relative;
         bottom: 250px;
-        left: 300px;
     }
 
     #question > .options > img.option{
