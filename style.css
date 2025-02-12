@@ -439,13 +439,15 @@ div.options >  img.option{
 
     .player-side > img{
         width: 200px;
+        position: relative;
+        left: 350px;
     }
 
     .system-side > img{
         width: 200px;
-        position: absolute;
-        right: -11.5%;
-        bottom: 12%;
+        position: relative;
+        bottom: 250px;
+        left: 300px;
     }
 
     #question > .options > img.option{
