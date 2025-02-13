@@ -450,7 +450,13 @@ div.options >  img.option{
     .system-side > img{
         width: 200px;
         position: relative;
-        bottom: 250px;
+        bottom: 110px;
+    }
+
+    .system-side{
+        position: relative;
+        top: 150px;
+        left: 100px;
     }
 
     #question > .options > img.option{
