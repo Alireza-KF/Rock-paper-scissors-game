@@ -96,7 +96,6 @@ div.options >  img.option{
 
     #again{
         height: 38px;
-        z-index: -1;
         left: 12%;
     }
 
@@ -394,7 +393,6 @@ div.options >  img.option{
     }
 
     #again{
-        z-index: -1;
         left: 8%;
     }
 

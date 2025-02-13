@@ -181,5 +181,4 @@ again.addEventListener("click", () => {
   imageElement.classList.add("d-none");
   systemImageElement.classList.add("d-none");
   question.classList.remove("d-none"); // Show the question element again
-  console.log(again)
 });
